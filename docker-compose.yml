@@ -13,6 +13,13 @@ services:
     volumes:
       - db-data:/var/lib/mysql
 
+  # Redis Server
+  redis:
+    image: redis:alpine
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    ports:
+      - 63799:6379
+
 
 
 
